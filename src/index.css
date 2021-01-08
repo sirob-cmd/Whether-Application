@@ -1,0 +1,244 @@
+* {
+  color: rgb(212, 212, 212);
+}
+
+html {
+  height: 100%;
+  width: 100vw;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffc889;
+  font-family: "Varela Round", sans-serif;
+  height: 100%;
+}
+
+.loader {
+  border: 16px solid #f3f3f3; /* Light grey */
+  border-top: 16px solid #3498db; /* Blue */
+  border-radius: 50%;
+  width: 120px;
+  height: 120px;
+  animation: spin 2s ease-in-out infinite;
+
+  position: absolute;
+  top: 42%;
+  left: 45%;
+  transform: translate(-50% -50%);
+}
+
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.WhetherApp {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  border: rgb(32, 32, 32) 12px solid;
+  border-radius: 12px;
+  background-color: #333;
+
+  -webkit-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 23px 0px rgba(0, 0, 0, 0.75);
+
+  text-shadow: 2px 2px 3px #000000;
+
+  text-align: center;
+  width: 85vw;
+  height: 80vh;
+
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+.error {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 30px;
+  background-color: red;
+  color: #fff;
+}
+
+.placeAndClock,
+.temperatureAndIcon,
+.sideInfo,
+.sevenDays,
+.dayCard {
+  z-index: 5;
+}
+
+.top {
+  display: flex;
+  justify-content: space-between;
+  align-items: top;
+  padding: 1rem 1rem 0 1rem;
+}
+
+.weekDay,
+.time {
+  font-size: 1rem;
+}
+
+/* BG IMG */
+
+.customBackground {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+
+/* PLACE AND CLOCK */
+
+.Clock .time {
+  padding-left: 0.5rem;
+}
+
+.place,
+.weekDay,
+.time {
+  margin: 0;
+}
+
+.place {
+  font-size: 2.5rem;
+}
+
+.Clock {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* TEMPERATURE AND ICON */
+.temperature {
+  font-size: 3rem;
+  margin: 0 10px;
+  font-weight: bold;
+  color: #d2e4ff;
+}
+
+.svg {
+  width: 150px;
+}
+
+/* SIDE SMALL INFO */
+.sideInfo {
+  text-align: left;
+  height: 300px;
+}
+
+.sideInfo p {
+  font-size: 1.1rem;
+  padding-right: 10px;
+}
+
+.humidity,
+.airPressure,
+.uvIndex,
+.visibility,
+.windSpeed {
+  display: flex;
+  align-items: center;
+}
+
+/* SEVEN DAYS */
+.sevenDays {
+  margin-left: 7px;
+  margin-bottom: 7px;
+
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  display: grid;
+  grid-gap: 10px;
+  align-items: center;
+  justify-content: center;
+}
+
+.dayCard {
+  margin-right: 7px;
+  background-color: rgba(51, 51, 51, 0.671);
+  border-radius: 10px;
+  padding-bottom: 10px;
+}
+
+.dayCard img {
+  max-width: 80%;
+  height: auto;
+}
+
+/*============== MEDIA QUERIES =================*/
+@media screen and (max-width: 1000px) {
+  .WhetherApp {
+    width: 100vw;
+  }
+  body {
+    overflow-x: hidden;
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .WhetherApp {
+    height: 100%;
+  }
+
+  .sevenDays {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  body {
+    background-color: rgb(25, 47, 51);
+  }
+  .top {
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+
+  .customBackground {
+    display: none;
+  }
+
+  .WhetherApp {
+    background-color: transparent;
+    border: none;
+    box-shadow: none;
+  }
+
+  .placeAndClock {
+    padding-top: 1rem;
+  }
+
+  .sideInfo {
+    padding: 1rem 0;
+  }
+
+  .sevenDays {
+    top: 100%;
+    grid-template-columns: 1fr 1fr;
+  }
+}
